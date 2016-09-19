@@ -17,10 +17,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./components/app/app.component');
 var heroes_component_1 = require('./components/heroes/heroes.component');
 var hero_detail_component_1 = require('./components/heroes/hero/hero-detail.component');
 var dashboard_component_1 = require('./components/dashboard/dashboard.component');
+var hero_service_1 = require('./services/hero.service');
 var app_routing_1 = require('./routing/app.routing');
 //in declarations inserisco i moduli di cui ho bisogno
 var AppModule = (function () {
@@ -28,9 +30,10 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, app_routing_1.routing],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
             declarations: [app_component_1.AppComponent, heroes_component_1.HeroesComponent, hero_detail_component_1.HeroDetailComponent, dashboard_component_1.DashboardComponent],
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [app_component_1.AppComponent],
+            providers: [hero_service_1.HeroService],
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

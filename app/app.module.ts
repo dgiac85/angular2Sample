@@ -8,18 +8,22 @@ This is the smallest amount of Angular that is needed for a minimal application 
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule }    from '@angular/http';
 
 import { AppComponent }        from './components/app/app.component';
 import { HeroesComponent }   from './components/heroes/heroes.component';
 import { HeroDetailComponent }   from './components/heroes/hero/hero-detail.component';
 import { DashboardComponent }      from './components/dashboard/dashboard.component';
+import { HeroService }          from './services/hero.service';
+import { HEROES }          from './constants/mock-heroes';
 import { routing } from './routing/app.routing';
 
 //in declarations inserisco i moduli di cui ho bisogno
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing ],
-  declarations: [ AppComponent,HeroesComponent,HeroDetailComponent,DashboardComponent ],
-  bootstrap:    [ AppComponent ]
+  imports:      [ BrowserModule, FormsModule, HttpModule, routing ],
+  declarations: [ AppComponent, HeroesComponent, HeroDetailComponent, DashboardComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [ HeroService ],
 })
 
 export class AppModule { }
